@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.heart-container {
+  text-align: center;
+}
+
+.heart {
+  width: 100px;
+  height: 90px;
+  background: radial-gradient(circle at 30% 30%, #ff5f6d, #ffc371);
+  position: relative;
+  display: inline-block;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  animation: pulse 1.2s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  background: radial-gradient(circle at 30% 30%, #ff5f6d, #ffc371);
+  border-radius: 50%;
+}
+
+.heart::before { top: -50px; left: 0; }
+.heart::after { left: 50px; top: 0; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1) rotate(-45deg); }
+  50% { transform: scale(1.2) rotate(-45deg); }
+}
+
+.hint {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+  animation: fade 3s infinite alternate;
+}
+
+@keyframes fade {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+.message, .birthday {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90%;
+  max-width: 600px;
+}
+
+.message h1, .birthday h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ffb6c1, 0 0 40px #ff4081;
+}
+
+.message p {
+  font-size: 1.2rem;
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Hiệu ứng trái tim tỏa sáng */
+.sparkle {
+  box-shadow: 0 0 30px 15px rgba(255,255,255,0.7);
+  animation: glow 0.8s ease-out forwards;
+}
+
+@keyframes glow {
+  0% { transform: scale(1) rotate(-45deg); opacity: 1; }
+  100% { transform: scale(2) rotate(-45deg); opacity: 0; }
+}
+
+/* Bong bóng bay */
+.bubble {
+  position: fixed;
+  bottom: -50px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  animation: floatUp 4s ease-in infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+}
+ 
